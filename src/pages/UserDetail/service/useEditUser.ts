@@ -5,7 +5,7 @@ import type { InputUserT } from "../../Home/components/form";
 const useEditUser = (id: number | undefined) => {
   return useMutation({
     mutationFn: (data: InputUserT) =>
-      request.put(`/user/${id}`, data).then((res) => res.data),
+      request.put(`/region/${id}`, data).then((res) => res.data),
   });
 };
 

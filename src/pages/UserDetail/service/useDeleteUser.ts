@@ -3,7 +3,7 @@ import { request } from "../../../config/request";
 
 const useDeleteUser = () => {
   return useMutation({
-    mutationFn: (id) => request.delete(`/user/${id}`).then((res) => res.data),
+    mutationFn: (id) => request.delete(`/region/${id}`).then((res) => res.data),
   });
 };
 

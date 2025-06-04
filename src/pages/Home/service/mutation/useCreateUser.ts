@@ -5,6 +5,6 @@ import { request } from "../../../../config/request";
 export const UseCreateUser = () => {
   return useMutation({
     mutationFn: (data: InputUserT) =>
-      request.post("/user", data).then((res) => res.data),
+      request.post("/region", data).then((res) => res.data),
   });
 };

@@ -7,7 +7,7 @@ import useDeleteUser from "../../UserDetail/service/useDeleteUser"
 import { useQueryClient } from "@tanstack/react-query"
 
 
-const User = ({ name, id, age, phone, profession }: UserT) => {
+const User = ({ name, id }: UserT) => {
 
     const [state, setState] = useState(false)
     const handleChange = (id: number) => {
@@ -33,14 +33,11 @@ const User = ({ name, id, age, phone, profession }: UserT) => {
             </div>
             <div>
                 <Link to={`user/${id}`}><h1>{name}</h1></Link>
-                <p>{age}</p>,
-                <p>{phone}</p>
-                <p>{profession}</p>
                 <div className="flex justify-between px-2 mt-5">
                     <button className="cursor-pointer px-2 rounded-[4px] bg-green-500 text-white" onClick={() => handleChange(id)}>Edit</button>
                     <button className="cursor-pointer px-2 rounded-[4px] bg-red-500 text-white" onClick={() => handleDelte(id)}>Delete</button>
                     <Modal isOpen={state} setisOpen={setState} >
-                        <Form setisOpen={setState} defaultValues={{ name, phone, profession, age, id }} />
+                        <Form setisOpen={setState} defaultValues={{ name, id }} />
                     </Modal>
                 </div>
             </div>
