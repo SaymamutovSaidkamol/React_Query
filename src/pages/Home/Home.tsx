@@ -15,6 +15,7 @@ const Home = () => {
 
   const handleChangePage = (event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
+    console.log(event);
 
   }
 
