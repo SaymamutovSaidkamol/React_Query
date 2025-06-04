@@ -10,8 +10,8 @@ interface RegionT {
   currentPage: number;
 }
 export interface responseT {
-  regions: RegionT;
-  totalPages: number;
+    regions: RegionT;
+    totalPages: number;
 }
 
 const useGetUser = (page = 1) => {
@@ -25,11 +25,7 @@ const useGetUser = (page = 1) => {
             page: page,
           },
         })
-        .then((res) => {
-
-          return { regions: res.data };
-          
-        }),
+        .then((res) => res.data),
   });
 };
 
