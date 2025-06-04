@@ -5,9 +5,6 @@ import useEditUser from "../../UserDetail/service/useEditUser";
 
 export interface InputUserT {
     name: string;
-    age: string;
-    phone: number;
-    profession: string;
 }
 
 
@@ -15,9 +12,6 @@ const Form = ({ defaultValues, setisOpen }: {
     setisOpen?: React.Dispatch<React.SetStateAction<boolean>>
     defaultValues?: {
         name: string;
-        age: string;
-        phone: number;
-        profession: string;
         id: number
     }
 }) => {
@@ -25,9 +19,6 @@ const Form = ({ defaultValues, setisOpen }: {
     const { register, handleSubmit, reset, formState: { errors } } = useForm<InputUserT>({
         defaultValues: {
             name: defaultValues?.name,
-            age: defaultValues?.age,
-            phone: defaultValues?.phone,
-            profession: defaultValues?.profession
         }
     })
 
@@ -64,27 +55,9 @@ const Form = ({ defaultValues, setisOpen }: {
                     <input {...register('name', {
                         required: { value: true, message: "Majburioy" },
                         minLength: { value: 3, message: "Eng Kami 3 ta harfdan iborat bulishi kerak" }
-                    })} type="text" className="bg-[#eee] py-2 px-2" placeholder="name..."/>
+                    })} type="text" className="bg-[#eee] py-2 px-2 outline-none" placeholder="name..." />
                     <p className="text-red-500">{errors.name?.message}</p>
 
-                    <input {...register('age', {
-                        required: { value: true, message: "Majburioy" },
-                        minLength: { value: 3, message: "Eng Kami 3 ta harfdan iborat bulishi kerak" }
-                    })} type="number" className="bg-[#eee] py-2 px-2" placeholder="age..."/>
-                    <p className="text-red-500">{errors.age?.message}</p>
-
-
-                    <input {...register('phone', {
-                        required: { value: true, message: "Majburioy" },
-                        minLength: { value: 3, message: "Eng Kami 3 ta harfdan iborat bulishi kerak" }
-                    })} type="number" className="bg-[#eee] py-2 px-2" placeholder="phone..."/>
-                    <p className="text-red-500">{errors.phone?.message}</p>
-
-                    <input {...register('profession', {
-                        required: { value: true, message: "Majburioy" },
-                        minLength: { value: 3, message: "Eng Kami 3 ta harfdan iborat bulishi kerak" }
-                    })} type="text" className="bg-[#eee] py-2 px-2" placeholder="profession..."/>
-                    <p className="text-red-500">{errors.profession?.message}</p>
                     <button type="submit" className="rounded-[5px] bg-[#eee]">{defaultValues ? "Edit" : "Send"}</button>
                 </div>
             </form>
